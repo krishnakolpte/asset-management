@@ -73,7 +73,7 @@ function updateAssetClaimeStatus(){
 
 				alert("asset claimed successfully");
 				document.getElementById("modal2").style.display = "none";
-				
+				window.location.reload();
 			}
 		});
 	});

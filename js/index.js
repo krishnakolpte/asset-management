@@ -308,6 +308,7 @@ function updateUserOnboardStatus(email){
 
 			if (dbid == email) {
 				childSnapshot.ref.update({onboard:"true"});
+				window.location.reload();
 			}
 		});
 	});

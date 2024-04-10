@@ -62,6 +62,7 @@ function updateUserProfleStatusInOnboardTable(fid){
 
 			if (dbid == fid) {		
 				childSnapshot.ref.update({profile:"true"});
+				window.location.reload();
 			}
 		});
 	});

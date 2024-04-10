@@ -47,6 +47,7 @@ function updateUserAssetAllocationStatusInOnboardData(empId){
 			console.log(dbid,empId);
 			if (dbid == empId) {
 				childSnapshot.ref.update({allocated:"true"});
+				window.location.reload();
 			}
 		});
 

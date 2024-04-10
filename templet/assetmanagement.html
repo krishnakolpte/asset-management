@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Asset Management</title>
+	<link rel="stylesheet" type="text/css" href="../css/assets.css">
+</head>
+<body>
+
+	<header>
+		<p id="greet">Welcome, krishna 👋</p>
+		<nav>
+			<h1>Creative Admin</h1>
+			<div id="userInfo">
+				<p id="fuid">ABC@GMAIL.COM</p>
+				
+				<button class="primary" id="onboard" onclick="onBoardDisplay()">On Board</button>
+
+				<button class="primary" id="onboard" onclick="addAssetDisplay()">Add Asset</button>
+
+				<button id="logout" onclick="logoutUser()">Logout</button>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main">
+		<div class="left-container">
+
+			<h3>All users of Creative.com</h3>
+
+			<table>
+				<caption>Users</caption>
+				<thead>
+					<tr>
+						<th>S.No</th>
+						<th>Employee Id</th>
+						<th>Asset Id</th>
+						<th>Asset Type</th>
+						<th>Asset Permission</th>
+						<th>Asset Allocation Date</th>
+						<th>Asset Allocation Expire Date</th>
+						<th>Allocated By</th>
+					</tr>
+				</thead>
+				<tbody id="tabaleBody">
+					
+				</tbody>
+			</table>
+			
+		</div>
+		<div id="right-container" class="right-container">
+			<div id="form">
+				<h2>asset Allocation!</h2>
+				<label>Employee Id</label>
+				<select name="employeid" id="employeid">
+					
+				</select>
+				<label>Asset Id</label>
+				<input id="assetid" readonly type="text" >
+				<label>Asset Type</label>
+				<select name="assetstype" id="assetstype">
+					<option value="hw">Hardware</option>
+					<option value="sw">Software</option>
+				</select>
+				<label>Asset Permission</label>
+				<select id="assetsPermission" name="permission">
+					<option value="true">True</option>
+					<option value="false">False</option>
+				</select>
+				<label>Asset allocation Date</label>
+				<input id="allocationDate" readonly type="date" >
+				<label>Asset Expire Date</label>
+				<input id="allocationExpireDate" readonly type="date">
+				
+				<button id="allocateAssetBtn" onclick="insertAssetAllocationData()">Allocate</button>
+				<span onclick="addAssetDisplayNone()">Close</span>				
+			</div>
+		</div>
+
+		<div id="onboardContainer">
+
+			<div>
+				<h2>On board User</h2>
+				<label>Onboard employee Id</label>
+				<select id="onboard_user_emails">
+					
+				</select>
+				<label>Onboard employee email</label>
+				<input readonly id="onboardEmpId" type="email" >
+				<button id="onboardEmployee" 
+				 onclick="onboardEmployee()">Onboard Employee</button>
+				<span id="closeOnboardBtn" onclick="onBoardDisplayNone()">close</span>
+			</div>
+			
+		</div>
+	</main>
+
+	<div id="loader">
+			<div id="loading">
+				
+			</div>
+		</div>
+	<input type="email" id="fid" style="display: none;">
+
+
+	<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script type="text/javascript" src="../js/connection.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/fetchdata.js"></script>
+	<script type="text/javascript" src="../js/insertAllocation.js"></script>
+
+
+	<script type="text/javascript">
+		authObj.onAuthStateChanged(function (user) {
+			if (user) {
+				//fetch the email id
+				var email_id = user.email;
+				//set the email id into input tag
+				document.getElementById("fuid").innerHTML = email_id;
+				document.getElementById("fid").value = email_id;
+				document.getElementById("loader").style.display = "flex";
+
+				fetchAdminData();		
+			}
+		});
+	</script>
+
+</body>
+</html>

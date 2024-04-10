@@ -1,0 +1,570 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+#home{
+	width: 100%;
+	height: fit-content;
+}
+
+header{
+	width: 100%;
+	height: 90px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+header>p{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	padding: 4px 20px;
+	background-color: lightblue;
+	background-image: url("../media/leaf.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+	color: white;
+	font-weight: 800;
+}
+
+header>nav{
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: 20px;
+	box-shadow: 2px 2px 5px grey;
+}
+
+header>nav>h1{
+	text-transform: capitalize;
+	font-weight: 800;
+	font-family: sans-serif;
+}
+header>nav>h1::first-letter{
+	color: royalblue;
+}
+
+header>nav>#userInfo{
+	width: 30%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#userInfo>p{
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 500;
+	font-family: sans-serif;
+	color: grey;
+}
+
+#userInfo>button{
+	padding: 10px 20px;
+	font-weight: 500;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+#logout{
+	width: 30%;
+	background-color: grey;
+	color: white;
+}
+
+#logout:hover{
+	color: royalblue;
+	opacity: 0.6;
+}
+
+/* -------------------------------- */
+
+main{
+	width: 100%;
+	height: 85vh;
+	margin-top: 100px;
+	display: grid;
+	grid-template-columns: 1.4fr 5fr;
+	gap:1rem;
+	grid-template-columns: 1fr;
+}
+
+.profile-details{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	padding: 20px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
+	gap: 1rem;
+	display: none;
+}
+
+.profile-details>h2{
+	text-transform: uppercase;
+	font-family: sans-serif;
+}
+
+.profile-details>.img{
+	width: 150px;
+	height: 150px;
+	border: 1px solid gray;
+	border-radius: 50%;
+	position: relative;
+	background-color: white;
+}
+
+.profile-details>.img>img{
+	width: 100%;
+	height: 100%;	
+}
+
+.profile-details>.img>button{
+	position: absolute;
+	bottom: 0;
+	right: -10px;
+	width: 50px;
+	height: 50px;	
+	border-radius: 10px;
+	border: none;
+	border: 1px solid royalblue;
+	padding: 10px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.profile-details>.img>button:hover{
+	opacity: 0.7;
+	background-color: royalblue;
+}
+.profile-details>.img>button>img{
+	width: 100%;
+	height: 100%;
+}
+
+.profile-details>h2{
+	text-transform: uppercase;
+
+}
+
+.profile-details>.info{
+	display: flex;
+	width: 100%;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+}
+
+.profile-details>.info>h3{
+	text-transform: uppercase;
+	font-family: sans-serif;
+}
+
+.profile-details>.info>p{
+	text-transform: capitalize;
+	font-family: sans-serif;
+	font-size: 1rem;
+}
+
+.profile-details>button{
+	padding: 10px 20px;
+	font-weight: 500;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	align-self: center;
+}
+
+.primaryBtn{
+	width: 50%;
+	background-color: royalblue;
+	color: white;
+}
+
+.primaryBtn:hover{
+	opacity: 0.6;
+}
+
+/*---------------------*/
+.home-container{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.home-container>img{
+	width: 50%;
+}
+
+.home-container>div{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 40px;
+	display: none;
+}
+
+.home-container>div>h2{
+	text-transform: capitalize;
+	font-family: sans-serif;
+}
+
+.home-container>div>label{
+	align-self: flex-start;
+	font-family: sans-serif;
+}
+
+.home-container>div>input{
+	width: 100%;
+	height: 30px;
+	border-radius: 5px;
+	outline: none;
+	border: 1px solid royalblue;
+	padding: 3px 20px;
+	font-family: sans-serif;
+}
+
+#btns{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.home-container>div>div>button{
+	padding: 10px 20px;
+	font-weight: 500;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+.primary{
+	background-color: royalblue;
+	color: white;
+}
+.secondory{
+	background-color: whitesmoke;
+	color: black;
+}
+
+.home-container>div>div>button:hover{
+	opacity: 0.7;
+}
+
+
+/*---------------------------*/
+
+.notify{
+	position: fixed;
+	bottom: -200px;
+	right: 20px;
+	width: 350px;
+	height: fit-content;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	border: 1px solid grey;
+	border-radius: 10px;
+	gap: 1rem;
+	transition: all 0.3s;
+	box-shadow: 4px 4px 5px lightgrey;
+
+}
+
+.notify>p{
+	text-transform: capitalize;
+	font-family: sans-serif;
+	font-size: 1rem;
+}
+
+.notify>button{
+	width: 50px;
+	padding: 10px 10px;
+	font-weight: 500;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	align-self: center;
+}
+
+/*-----------------------------*/
+
+.modal{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: lightgrey;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(46, 46, 46, 0.448);
+	display: none;
+}
+
+.modal>#form{
+	position: relative;
+	width: 400px;
+	height: 500px;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	box-shadow: 5px 5px 10px grey;
+	border: 1px solid gray;
+}
+
+.modal>#form>h2{
+	text-transform: capitalize;
+	font-weight: 700;
+	font-family: sans-serif;
+
+}
+
+.input_field{
+	width: 100%;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 0.6rem;
+}
+
+.input_field>label{
+	text-transform: capitalize;
+	font-weight: 500;
+	font-family: sans-serif;
+}
+
+.input_field>input,select{
+	width: 100%;
+	text-transform: lowercase;
+	font-weight: 400;
+	font-family: sans-serif;
+	outline: none;
+	padding: 4px 20px;
+	font-size: 16px;
+	border: 1px solid royalblue;
+	border-radius: 5px;
+}
+
+.modal>#form>button{
+	padding: 10px 20px;
+	font-weight: 500;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+.modal>#form>#crossBtn{
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	font-weight: 500;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	display: grid;
+	place-items: center;
+}
+
+#crossBtn:hover{
+	opacity: 0.6;
+	border: 2px solid red;
+	background-color: transparent;
+}
+
+/*------------------------------------------------------*/
+
+
+#loader{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: lightgrey;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(46, 46, 46, 0.448);
+	display: none;
+}
+
+#loader>#loading{
+	width: 100px;
+	height: 100px;
+	background-color: transparent;
+	animation: rotate 1s infinite;
+	border-radius: 50%;
+	border-left: 5px solid white;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	border-right: 5px solid transparent;
+}
+
+@keyframes rotate {
+  from {
+  	transform: rotate(0);
+  }
+  to {
+  	transform: rotate(360deg);
+  }
+}
+
+
+#pendingStateDiv{
+	width: fit-content;
+	height: fit-content;
+	background: linear-gradient(to left,orange,pink);
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid royalblue;
+	color: black;
+	text-transform: capitalize;
+	font-size: 1rem;
+	position: fixed;
+	bottom: 20px;
+	left: 30%;
+	z-index: 20;
+	display: none;
+}
+
+#onboardEmployeeSuccess{
+	width: fit-content;
+	height: fit-content;
+	background: linear-gradient(to right,lightgreen,lightblue);
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid royalblue;
+	color: black;
+	text-transform: capitalize;
+	font-size: 1rem;
+	position: fixed;
+	top: 100px;
+	right:20px;
+	z-index: 20;
+	display: none;
+}
+
+#onboardEmployeeSuccess>#empid{
+	text-transform: uppercase;
+	font-size: 1.2rem;
+}
+
+#claimeAssetNotification{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: fit-content;
+	height: fit-content;
+	background: linear-gradient(to right,lightgreen,lightblue);
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid royalblue;
+	color: black;
+	text-transform: capitalize;
+	font-size: 1rem;
+	position: fixed;
+	bottom: 20px;
+	right:20px;
+	z-index: 20;
+	display: none;
+}
+
+#claimeAssetNotification>#claimeBtn{
+	padding: 10px 20px;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+#claimeAssetNotification>#claimeBtn:hover{
+	opacity: 0.7;
+}
+
+#modal2>#form{
+	height: 90vh;
+}
+
+
+.popup {
+   
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   background-color: lightpink;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+     display: none;
+}
+
+.popup p {
+   	font-size: 1rem;
+}
+
+.popup .close {
+	 font-size: 1.5rem;
+   cursor: pointer;
+}
+
+.popup.active {
+    display: flex;
+}

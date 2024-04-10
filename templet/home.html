@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creative.com</title>
+	<link rel="stylesheet" type="text/css" href="../css/home.css">
+	<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+</head>
+<body>
+	<div id="home">
+		<header>
+			<p id="greet">Welcome, krishna 👋</p>
+			<nav>
+				<h1>Creative</h1>
+				<div id="userInfo">
+					<p id="fuid">ABC@GMAIL.COM</p>
+					<button id="logout" onclick="logoutUser()">Logout</button>
+				</div>
+			</nav>
+		</header>
+		<main id="main">
+				<div id="profile-details" class="profile-details">
+					<h2>Profile</h2>
+					
+					<div class="info">
+						<h3>Name</h3>
+						<p id="u_name">Krishna Kolapte</p>
+					</div>
+					<div class="info">
+						<h3>Email</h3>
+						<p id="u_mail">abcd@gmail.com</p>
+					</div>
+					<div id="employeidContainer" style="display:none;" class="info">
+						<h3>Employee Id</h3>
+						<p id="u_empid"></p>
+					</div>
+					<div class="info">
+						<h3>dob</h3>
+						<p id="u_dob">dob</p>
+					</div>
+					<div class="info">
+						<h3>Contact</h3>
+						<p id="u_contact">contact</p>
+					</div>
+					<div class="info">
+						<h3>Gender</h3>
+						<p id="u_gender">gender</p>
+					</div>
+					<button onclick="openUpdateProfilePage()" id="update_profileBtn" class="primaryBtn">Update</button>
+					<button style="display: none;" onclick="openAssetModal()" id="calimedetailsBtn" class="secondoryBtn">Asset Details</button>
+				</div>
+
+				<div id="home-container" class="home-container">
+					<img src="../media/user2.gif">
+					<div id="update_form">
+						<h2>Update Your Profile!</h2>
+						<label>Name</label>
+						<input id="up_name" type="text">
+						<label>Email</label>
+						<input id="up_mail" type="text">
+						<label>Contact</label>
+						<input id="up_contact" type="text">
+						<label>Date Of birth</label>
+						<input id="up_dob" type="text">
+						<label>Gender</label>
+						<input id="up_gender" type="text">
+						<div id="btns">
+							<button onclick="updateUserDetails()" class="primary">Update</button>
+							<button onclick="closeUpdateProfilePage()" id="cancel" class="secondory">Cancel</button>
+						</div>
+						
+					</div>
+				</div>	
+
+				<div id="pendingStateDiv">
+					<p>Your account onboarding status is pending.</p>
+				</div>	
+
+		</main>
+
+		<div id="notify" class="notify">
+			<p>Please Complete Your Profile.</p>
+			<button onclick="openModal()" class="primaryBtn">Ok</button>
+		</div>
+
+		<div id="modal" class="modal">
+			<div id="form">
+				<h2>Update Profile</h2>
+				<div class="input_field">
+					<label for="name">Name</label>
+					<input  type="text" id="name" placeholder="Abc Abc Abc">
+				</div>
+				<div class="input_field">
+					<label for="dob">Date of Birth</label>
+					<input type="date" id="dob">
+				</div>
+				<div class="input_field">
+					<label for="contact">Contact</label>
+					<input  type="number" id="contact">
+				</div>
+				<div class="input_field">
+					<label for="contact">Select your gender</label>
+					<select  name="gender" id="gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select>
+				</div>
+				<button id="insertData" class="primaryBtn" onclick="inserUserData()">Insert</button>
+				<button id="crossBtn" onclick="closeModal()">X</button>
+			</div>
+		</div>
+
+		<div  id="modal2" class="modal">
+			<div id="form">
+				<h2>Asset allocated Details!</h2>
+				<div class="input_field">
+					<label for="asset_empid">Employee Id</label>
+					<input  readonly type="text" id="asset_empid" placeholder="Abc Abc Abc">
+				</div>
+				<div class="input_field">
+					<label for="asset_id">Asset id</label>
+					<input readonly type="text" id="asset_id">
+				</div>
+				<div class="input_field">
+					<label for="asset_type">Asset Type</label>
+					<input readonly  type="text" id="asset_type">
+				</div>
+				<div class="input_field">
+					<label for="asset_permis">Asset Permission</label>
+					<input readonly  type="text" id="asset_permis">
+				</div>
+				<div class="input_field">
+					<label for="asset_allocated_date">Asset Allocated Date</label>
+					<input readonly  type="text" id="asset_allocated_date">
+				</div>
+				<div class="input_field">
+					<label for="asset_all_expire_date">Asset allocated Expire date</label>
+					<input readonly type="text" id="asset_all_expire_date">
+				</div>
+
+				<div class="input_field">
+					<label for="asset_all_by">Asset allocated By</label>
+					<input readonly  type="text" id="asset_all_by">
+				</div>
+				
+				<button id="calimedataBtn" class="primaryBtn" onclick="updateAssetClaimeStatus()">Calime Asset</button>
+				<button style="display: none;" id="reclaimdataBtn" class="primaryBtn" onclick="">Re Calime Asset</button>
+				<button id="crossBtn" onclick="closeAssetModal()">X</button>
+			</div>
+		</div>
+
+		<div id="loader">
+			<div id="loading">
+				
+			</div>
+		</div>
+		<div id="onboardEmployeeSuccess">
+			<p>Your profile is onboarded successfully.</p>
+			<p id="empid"></p>
+		</div>
+		<div id="claimeAssetNotification">
+			<p>Claime Your Asset, asset allocated Successfully.</p>
+			<button id="claimeBtn" onclick="openAssetModal()">Claime</button>
+		</div>
+		<input type="email" id="fid" style="display: none;">
+		<div id="notificationPopup" class="popup">
+		    <p>"Reminder: Today is the last day for reclaiming your asset!"</p>
+		    <span class="close" onclick="closeNotification()">&times;</span>
+		</div>
+		<div id="notificationPopup2" class="popup">
+		    <p>Reminder: "Your asset permission is expired, please contact Your admin."</p>
+		    <span class="close" onclick="closeNotification2()">&times;</span>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../js/connection.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<!--    below script is used for realtime database -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  	
+	<script type="text/javascript" src="../js/insert.js"></script>
+	
+	<script type="text/javascript" src="../js/fetchdata.js"></script>
+	<script type="text/javascript" src="../js/updatedata.js"></script>
+
+	<script type="text/javascript">
+		function notificationPopUp() {
+
+			setTimeout(()=>{
+				document.getElementById("notify").style.bottom = "20px";
+			},2000);
+	
+		}	
+
+		notificationPopUp();
+
+		
+		authObj.onAuthStateChanged(function (user) {
+			if (user) {
+				//fetch the email id
+				var email_id = user.email;
+				//set the email id into input tag
+				document.getElementById("fuid").innerHTML = email_id;
+				document.getElementById("fid").value = email_id;
+				document.getElementById("loader").style.display = "flex";
+
+				if(!fetchData()){
+					document.getElementById("loader").style.display = "none";
+					document.getElementById("notify").style.display = "flex";
+					document.getElementById("notify").style.bottom = "20px";
+				}	
+
+				checkUserIsOnboardedOrNot(user.email);	
+				fetchUserEployeeId(user.email);	
+
+
+			}
+		});
+
+		
+
+	</script>
+</body>
+</html>

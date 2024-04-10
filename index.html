@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<title>Log In Page</title>
+	<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+</head>
+<body>
+	<main>
+		<div id="container">
+			<div id="header">
+				<h1>Creative</h1>
+				<p id="sign_in_p1">New user? <span id="sign_up_link" onclick="toggleToSignUp()">Sign Up</span></p>
+				<p id="sign_in_p2">Already have account? <span id="sign_in_link" onclick="toggleToSignIn()">Sign In</span></p>
+			</div>
+			<div id="login_container">
+
+				<div id="left">
+					<img src="./media/user.gif">
+				</div>
+				<div id="right">
+					<div id="headding">
+					<h2>Welcome Back!</h2>
+					<p id="s_notify1">Login to continue</p>
+					<p id="s_notify2">Register to continue</p>
+					</div>
+
+					<div id="email_container" class="input_field">
+						<div>
+							<img src="./media/mail.png">
+						</div>
+						<input id="email_id" type="email" placeholder="useremail@gmail.com">
+					</div>
+					<div id="password_container" class="input_field">
+						<div>
+							<img src="./media/pass.jpg">
+						</div>
+						<input id="password" type="password" placeholder="user password">
+					</div>
+
+					<div id="captcha_container" class="input_field">
+						<div>
+							<img src="./media/pass.jpg">
+						</div>
+						<input id="captcha" maxlength="4" type="text" placeholder="enter the captcha">
+					</div>
+					<div  id="confirm_pass_div" style="display: none;" class="input_field" >
+						<div>
+							<img src="./media/pass.jpg">
+						</div>
+						<input id="confirm_pass" type="password" placeholder="confirm password">
+					</div>
+
+					<div id="action_btns">
+						<button id="login" class="primaryBtn" onclick="loginUser()">LOGIN</button>
+						<button id="register" class="primaryBtn" onclick="registerUser()">RGISTER</button>
+						<p id="secondoryBtn">CAPTCHA : 1232</p>
+
+					</div>
+
+					<div id="social_links">
+						<p id="social_p1">Login with</p>
+						<p id="social_p2">Sign un with</p>
+						<div>
+							<img src="./media/google.png">
+						</div>
+						<div>
+							<img src="./media/face.png">
+						</div>
+						<div>
+							<img src="./media/tweet.png">
+						</div>
+
+					</div>
+					
+				</div>
+
+				<div id="verify">
+					<div>
+						<h2>Verify your Email</h2>
+						<img src="./media/mail.png">
+						<button id="vBTN" class="primaryBtn" onclick="verifyUserEmail()">Verify</button>
+						<button id="crossBtn" onclick="closeVerifyModal()">X</button>
+					</div>
+				</div>
+
+				<input style="display:none;" type="text" id="hiddenCaptcha">
+			</div>
+			
+		</div>
+		<div id="bacground_div">
+			<div>
+				
+			</div>
+		</div>
+	</main>
+
+
+<script type="text/javascript" src="./js/connection.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+
+
+<script type="text/javascript">
+
+	let captcha = "";
+
+	function generateCaptcha(){
+	 	captcha = Math.floor(1000 + Math.random() * 9000).toString();
+	 	document.getElementById("hiddenCaptcha").value = captcha;
+	 	document.getElementById("secondoryBtn").innerHTML = `CAPTCHA : ${captcha}`;
+	}
+
+	generateCaptcha();
+
+	
+
+	//check that the user is active or not
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+			//check the credential of the user.
+			var status = user.emailVerified;
+
+			if (status == false) {
+				document.getElementById("verify").style.display = "flex";
+			}else{
+				//check that wether the user is admin or normal user
+				isAdminUser(user.email);
+			}
+		}
+		else{
+			//do not do anything
+		}
+	});
+
+	function eventsHandling(){
+		var email = document.getElementById("email_id");
+		var password = document.getElementById("password");
+		var confirm_pass = document.getElementById("confirm_pass");
+		var captcha = document.getElementById("captcha");
+
+		email.addEventListener("keypress",()=>{
+			document.getElementById("email_container").style.borderColor = "royalblue";
+		});
+
+		password.addEventListener("keypress",()=>{
+			document.getElementById("password_container").style.borderColor = "royalblue";
+		});
+
+		confirm_pass.addEventListener("keypress",()=>{
+			document.getElementById("confirm_pass_div").style.borderColor = "royalblue";
+		});
+
+		captcha.addEventListener("keypress",()=>{
+			document.getElementById("captcha_container").style.borderColor = "royalblue";
+		});
+	}
+
+	eventsHandling();
+</script>	
+
+</body>
+</html>

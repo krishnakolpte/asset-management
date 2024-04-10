@@ -1,0 +1,331 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+#home{
+	width: 100%;
+	height: fit-content;
+}
+
+header{
+	width: 100%;
+	height: 90px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+header>p{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	padding: 4px 20px;
+	background-color: lightblue;
+	background-image: url("../media/leaf.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+	color: white;
+	font-weight: 800;
+}
+
+header>nav{
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: 20px;
+	box-shadow: 2px 2px 5px grey;
+}
+
+header>nav>h1{
+	text-transform: capitalize;
+	font-weight: 800;
+	font-family: sans-serif;
+}
+header>nav>h1::first-letter{
+	color: royalblue;
+}
+
+header>nav>#userInfo{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1rem;
+}
+
+#userInfo>p{
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 500;
+	font-family: sans-serif;
+	color: grey;
+}
+
+#userInfo>button{
+	padding: 10px 20px;
+	font-weight: 500;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+#logout{
+	width: 100px;
+	background-color: grey;
+	color: white;
+}
+
+#logout:hover{
+	color: royalblue;
+	opacity: 0.6;
+}
+
+/*============================================*/
+
+main{
+	width: 100%;
+	height: 85vh;
+	margin-top: 100px;
+	display: grid;
+	grid-template-columns:1fr;
+	gap:1rem;
+}
+
+main>.left-container{
+	width: 100%;
+	height: 85vh;
+	overflow-y: auto;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 1rem;
+	padding: 20px;
+}
+
+.left-container>h3{
+	text-transform: capitalize;
+	font-size: 1.2rem;
+}
+
+.left-container>table{
+	width: 100%;
+	height: fit-content;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.left-container>table>caption{
+	padding: 20px;
+	font-size: 1.2rem;
+}
+
+.left-container>table>thead>tr>th{
+	font-size: 1.1rem;
+	text-transform: capitalize;
+	padding: 10px 20px;
+	background-color: lightblue;
+}
+
+.left-container>table>tbody>tr>td{
+	text-transform: lowercase;
+	font-size: 1rem;
+	padding: 10px 20px;
+	background-color: whitesmoke;
+	text-align: center;
+}
+
+.right-container{
+	width: 100%;
+	height: 100%;
+	padding: 20px 20px;
+	display: none;
+}
+
+
+
+#form{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#form>h2{
+	text-transform: capitalize;
+}
+
+#form>label{
+	width: 100%;
+	align-self: flex-start;
+	text-transform: capitalize;
+}
+
+#form>input,select{
+	width: 100%;
+	height: 30px;
+	padding: 5px 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	align-self: flex-start;
+	text-transform: capitalize;
+	background-color: whitesmoke;
+	border: 1px solid gray;
+}
+
+#form>button{
+	width: 100%;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background-color: royalblue;
+	color: white;
+	cursor: pointer;
+}
+
+#form>span{
+	align-self: flex-end;
+	padding: 5px 8px;
+	border: none;
+	border-radius: 5px;
+	background-color: whitesmoke;
+	color: royalblue;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+#form>span:hover{
+	opacity: 0.7;
+}
+
+/*================== Loadr css ==================*/
+#loader{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: lightgrey;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(46, 46, 46, 0.448);
+	display: none;
+}
+
+#loader>#loading{
+	width: 100px;
+	height: 100px;
+	background-color: transparent;
+	animation: rotate 1s infinite;
+	border-radius: 50%;
+	border-left: 5px solid white;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	border-right: 5px solid transparent;
+}
+
+@keyframes rotate {
+  from {
+  	transform: rotate(0);
+  }
+  to {
+  	transform: rotate(360deg);
+  }
+}
+
+
+/*===================on board employee  ==========*/
+
+#onboardContainer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: lightgrey;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(46, 46, 46, 0.448);
+	display: none;
+}
+
+#onboardContainer>div{
+	position: relative;
+	width: 400px;
+	height: 400px;
+	border-radius: 10px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 20px;
+}
+
+#onboardContainer>div>h2{
+	text-transform: capitalize;
+}
+
+#onboardContainer>div>label{
+	width: 100%;
+	align-self: flex-start;
+	text-transform: capitalize;
+}
+
+#onboardContainer>div>input,select{
+	width: 100%;
+	height: 30px;
+	padding: 5px 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	align-self: flex-start;
+	text-transform: capitalize;
+	background-color: whitesmoke;
+	border: 1px solid gray;
+}
+
+#onboardContainer>div>button{
+	width: 100%;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background-color: royalblue;
+	color: white;
+}
+
+#closeOnboardBtn{
+	width: 10%;
+	position: absolute;
+	top:20px;
+	right: 20px;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	color: royalblue;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+#closeOnboardBtn:hover {
+	opacity: 0.7;
+}

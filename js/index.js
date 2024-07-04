@@ -381,30 +381,29 @@ function addAssetDisplayNone() {
 
 // ======================================================
 
-function checkUserIsOnboardedOrNot(email) {
-    firebase
+async function checkUserIsOnboardedOrNot(email) {
+    let flag = true;
+    await firebase
         .database()
         .ref("permission_data")
         .once("value", function (snapshot) {
             //fetch the individual data from the snapshot.
             snapshot.forEach(function (childSnapshot) {
                 //fetch the id from database
-                var dbid = childSnapshot.val().email;
-                var onboard = childSnapshot.val().onboard;
+                const dbid = childSnapshot.val().email;
+                const onboard = childSnapshot.val().onboard;
 
-                if (dbid == email) {
-                    if (onboard == "true") {
-                        document.getElementById(
-                            "pendingStateDiv"
-                        ).style.display = "none";
-                    } else {
-                        document.getElementById(
-                            "pendingStateDiv"
-                        ).style.display = "block";
-                    }
+                if (dbid == email && onboard == "true") {
+                    document.getElementById("pendingStateDiv").style.display =
+                        "none";
+                    flag = false;
                 }
             });
         });
+
+    if (flag) {
+        document.getElementById("pendingStateDiv").style.display = "block";
+    }
 }
 
 function openAssetModal() {

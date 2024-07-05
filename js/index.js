@@ -14,12 +14,16 @@ function toggleToSignUp() {
     document.getElementById("login").style.display = "none";
     document.getElementById("secondoryBtn").style.display = "none";
     document.getElementById("register").style.display = "block";
+    document.getElementById("register").style.backgroundColor = "#ffa600";
 
     document.getElementById("social_p1").style.display = "none";
     document.getElementById("social_p2").style.display = "block";
 
     document.getElementById("s_notify1").style.display = "none";
     document.getElementById("s_notify2").style.display = "block";
+    document.getElementById("s_notify2").style.color = "#ffa600";
+
+    document.getElementById("bg_div").style.backgroundColor = "#58508d";
 }
 
 function toggleToSignIn() {
@@ -39,6 +43,8 @@ function toggleToSignIn() {
 
     document.getElementById("s_notify1").style.display = "block";
     document.getElementById("s_notify2").style.display = "none";
+
+    document.getElementById("bg_div").style.backgroundColor = "royalblue";
 }
 
 function loginUser() {

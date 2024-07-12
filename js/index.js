@@ -23,7 +23,7 @@ function toggleToSignUp() {
     document.getElementById("s_notify2").style.display = "block";
     document.getElementById("s_notify2").style.color = "#ffa600";
 
-    document.getElementById("bg_div").style.backgroundColor = "#58508d";
+    document.getElementById("bg_div").style.backgroundColor = "#ffa600";
 }
 
 function toggleToSignIn() {
